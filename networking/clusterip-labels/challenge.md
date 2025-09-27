@@ -95,6 +95,7 @@ Use o comando kubectl label para remover a label curso.
 ```Bash 
 kubectl label pod pod-nginx curso-
 ```
+
 b) Verificar a Conexão Novamente
 Verifique os endpoints do Service outra vez.
 
@@ -103,8 +104,10 @@ kubectl get endpoints svc-acesso-nginx
 ```
 Saída Esperada: A lista de endpoints estará vazia, pois o Service não encontra mais nenhum Pod com a label curso: 2TCNPZ.
 
-NAME               ENDPOINTS         AGE
-svc-acesso-nginx   <none>            2m
+|NAME              | ENDPOINTS         |AGE|
+| ------          | ------        | ------ |
+|svc-acesso-nginx  | <none>      |      2m|
+
 c) Tentar o Acesso Novamente
 
 Repita o comando curl do pod-de-teste.
@@ -112,6 +115,7 @@ Repita o comando curl do pod-de-teste.
 ```Bash
 kubectl exec -it pod-de-teste -- curl svc-acesso-nginx
 ```
+
 Saída Esperada: O acesso irá falhar. A conexão será recusada porque o Service não tem mais nenhum destino para o qual rotear o tráfego.
 
 Este experimento demonstra de forma clara e prática como a label é a chave para o roteamento de tráfego nos Services do Kubernetes.
