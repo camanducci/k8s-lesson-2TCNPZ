@@ -9,3 +9,6 @@ kubectl get svc
 kubectl scale pod nginx-test --replicas=3
 kubectl delete svc nginx-test
 kubectl delete pod nginx-test
+kubectl delete pods --all
+kubectl delete svc --all
+kubectl delete all --all
